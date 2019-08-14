@@ -16,7 +16,7 @@ export class AppComponent {
   sortable: Sortable;
   droppable: Droppable;
 
-  @ViewChild('dropzone', { static: false }) set initSortable(elem: ElementRef) {
+  @ViewChild('dragzone', { static: false }) set initSortable(elem: ElementRef) {
     this.sortable = new Sortable([elem.nativeElement]);
 
     this.sortable.on('sortable:start', res => {
