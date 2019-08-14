@@ -1,4 +1,4 @@
-.container {
+#dragzone {
   display: flex;
 }
 
@@ -11,7 +11,7 @@
   background-repeat: no-repeat;
 }
 
-.droppable {
+#dropzone {
   border-width: 3px;
   border-style: dotted;
   height: 300px;
