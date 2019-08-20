@@ -1,12 +1,10 @@
 <div class="container" #dragzone>
   <ng-container *ngFor="let logo of logoService.logos">
     <img
-      class="item"
+      class="item draggable"
       [src]="sanitizer.bypassSecurityTrustResourceUrl(logo.url)"
     />
   </ng-container>
 </div>
 <h1>Which framework do you pick ?</h1>
-<div class="container" #dropzone>
-  <div class="item"></div>
-</div>
+<div class="container" #dropzone id="dropzone"></div>

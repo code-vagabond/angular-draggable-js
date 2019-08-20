@@ -1,4 +1,11 @@
-import { Component, ViewChild, ElementRef, ViewChildren } from '@angular/core';
+import {
+  Component,
+  ViewChild,
+  ElementRef,
+  ViewChildren,
+  QueryList,
+  AfterViewInit
+} from '@angular/core';
 import {
   Sortable,
   Droppable,
@@ -22,27 +29,33 @@ export class AppComponent {
     });
 
     this.sortable.on('sortable:start', res => {
-      console.log(res, 'hahahah');
+      console.log(res, 'sortable:start');
     });
     this.sortable.on('drag:over:container', (res: DragOverContainerEvent) => {
-      console.log(res, 'hihihihihi');
+      console.log(res, 'drag:over:container');
       console.log(res.data.originalSource.id);
     });
     this.sortable.on('drag:over', res => {
-      console.log(res, 'EHEHEHEHE');
+      console.log(res, 'drag:over');
     });
   }
 
   // https://github.com/Shopify/draggable/tree/master/src/Droppable
-  @ViewChildren('container') set initDroppable(elem: ElementRef) {
-    this.droppable = new Droppable([elem.nativeElement], {
+  @ViewChildren('dragzone, dropzone') set initDroppable(query: QueryList<any>) {
+    const nativeElements = query
+      .toArray()
+      .map((elem: ElementRef) => elem.nativeElement);
+
+    console.log(nativeElements);
+
+    this.droppable = new Droppable(nativeElements, {
       draggable: '.item',
-      dropzone: '#dropzone'
+      dropzone: '.container'
     });
     console.log(this.droppable);
 
     this.droppable.on('droppable:dropped', () => {
-      console.log('res');
+      console.log('droppable:dropped');
     });
 
     this.droppable.on('droppable:returned', () =>
