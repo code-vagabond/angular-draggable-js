@@ -3,7 +3,8 @@ import {
   OnInit,
   ElementRef,
   ViewChildren,
-  ViewChild
+  ViewChild,
+  QueryList
 } from '@angular/core';
 import { LogoService } from '../logo.service';
 import { DomSanitizer } from '@angular/platform-browser';
