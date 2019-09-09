@@ -1,14 +1,5 @@
-<a routerLink="sortable">To Sortable only</a>
+<a routerLink="sortable">Sortable one single dropzone</a>
+<br />
+<a routerLink="sortable-multiple-dropzones">Sortable multple dropzones</a>
 
 <router-outlet></router-outlet>
-
-<div class="container" #dragzone>
-  <ng-container *ngFor="let logo of logoService.logos">
-    <img
-      class="item draggable"
-      [src]="sanitizer.bypassSecurityTrustResourceUrl(logo.url)"
-    />
-  </ng-container>
-</div>
-<h1>Which framework do you pick ?</h1>
-<div class="container" #dropzone id="dropzone"></div>
