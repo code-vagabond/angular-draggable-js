@@ -1,0 +1,23 @@
+#dragzone {
+  display: flex;
+}
+
+.item {
+  width: 100px;
+  height: 100px;
+  flex-wrap: wrap;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#dropzone {
+  border-width: 3px;
+  border-style: dotted;
+  height: 300px;
+  width: 300px;
+}
+
+img {
+  border: 0;
+}

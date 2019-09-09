@@ -1,0 +1,7 @@
+<div #dragzone>
+  <img
+    *ngFor="let logo of logoService.logos"
+    class="item"
+    [src]="sanitizer.bypassSecurityTrustResourceUrl(logo.url)"
+  />
+</div>

@@ -23,22 +23,22 @@ export class AppComponent {
   sortable: Sortable;
   droppable: Droppable;
 
-  @ViewChild('dragzone', { static: false }) set initSortable(elem: ElementRef) {
-    this.sortable = new Sortable([elem.nativeElement], {
-      draggable: '.item'
-    });
+  // @ViewChild('dragzone', { static: false }) set initSortable(elem: ElementRef) {
+  //   this.sortable = new Sortable([elem.nativeElement], {
+  //     draggable: '.item'
+  //   });
 
-    this.sortable.on('sortable:start', res => {
-      console.log(res, 'sortable:start');
-    });
-    this.sortable.on('drag:over:container', (res: DragOverContainerEvent) => {
-      console.log(res, 'drag:over:container');
-      console.log(res.data.originalSource.id);
-    });
-    this.sortable.on('drag:over', res => {
-      console.log(res, 'drag:over');
-    });
-  }
+  //   this.sortable.on('sortable:start', res => {
+  //     console.log(res, 'sortable:start');
+  //   });
+  //   this.sortable.on('drag:over:container', (res: DragOverContainerEvent) => {
+  //     console.log(res, 'drag:over:container');
+  //     console.log(res.data.originalSource.id);
+  //   });
+  //   this.sortable.on('drag:over', res => {
+  //     console.log(res, 'drag:over');
+  //   });
+  // }
 
   // https://github.com/Shopify/draggable/tree/master/src/Droppable
   @ViewChildren('dragzone, dropzone') set initDroppable(query: QueryList<any>) {
