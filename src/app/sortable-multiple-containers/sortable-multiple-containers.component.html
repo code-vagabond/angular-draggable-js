@@ -1,0 +1,8 @@
+<div class="container" #zone1>
+  <img
+    *ngFor="let logo of logoService.logos"
+    class="item"
+    [src]="sanitizer.bypassSecurityTrustResourceUrl(logo.url)"
+  />
+</div>
+<div class="container" #zone2></div>
