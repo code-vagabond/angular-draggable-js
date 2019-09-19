@@ -1,6 +1,7 @@
 <div class="container" #zone1>
   <img
-    *ngFor="let logo of logoService.logos"
+    *ngFor="let logo of logoService.logos; index as i"
+    [attr.index]="i"
     class="item"
     [src]="sanitizer.bypassSecurityTrustResourceUrl(logo.url)"
   />

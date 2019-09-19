@@ -1,18 +1,12 @@
-import {
-  Component,
-  OnInit,
-  ElementRef,
-  ViewChild,
-  QueryList,
-  ViewChildren
-} from '@angular/core';
-import { LogoService } from '../logo.service';
+import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import {
+  DragOverContainerEvent,
   Sortable,
-  Droppable,
-  DragOverContainerEvent
+  SortableStartEvent
 } from '@shopify/draggable';
+
+import { LogoService } from '../logo.service';
 
 @Component({
   selector: 'app-sortable-multiple-containers',
@@ -37,8 +31,10 @@ export class SortableMultipleContainersComponent {
       draggable: '.item'
     });
 
-    this.sortable.on('sortable:start', res => {
-      console.log(res, 'sortable:start');
+    this.sortable.on('sortable:start', (res: SortableStartEvent) => {
+      console.log('sortable:start \n', res);
+      const item: HTMLElement = res.data.dragEvent.data.source;
+      const itemIndex = item.attributes.getNamedItem('index').value;
     });
     this.sortable.on('drag:over:container', (res: DragOverContainerEvent) => {
       console.log(res, 'drag:over:container');
